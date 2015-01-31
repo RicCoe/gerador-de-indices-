@@ -5,7 +5,7 @@ def  leArquivo(stream):
         pk=[]
         with open(stream,'rb') as file:
             stat=os.stat(stream)
-            size=stat[6]#TAMANHO DO ARQUIVO----DADO DO SISTEMA
+            size=stat[6]
             sk=[]
             bo=[]
             r=file.read(1)
@@ -72,7 +72,7 @@ def  leArquivo(stream):
 
 def criaIndices(u1,u0,w1,w0):
     try:
-        with open("chavePrim.txt",'w') as stream:#chave prim=ID+BO
+        with open("Prim.txt",'w') as stream:
             for i in range(0,len(u0)):
                 stream.write(str(u0[i]))
                 stream.write("|")
@@ -80,7 +80,7 @@ def criaIndices(u1,u0,w1,w0):
                 stream.write("|")
                 stream.write('\n')
             stream.write('#')
-        with open('chaveSec.txt','w') as file:#chave sec=NOME+ID
+        with open('Sec.txt','w') as file:
             for i in range(0,len(w0)):
                 file.write(str(w0[i]))
                 file.write("|")
@@ -213,7 +213,7 @@ def imprimeOsParanaueNaTela(indices1,stream,indices2):
                                 else:
                                     var=bo[i]
                                     stat=os.stat(stream)
-                                    size=stat[6]#TAMANHO DO ARQUIVO----DADO DO SISTEMA
+                                    size=stat[6]
                                     r=file.read(1)
                                     while var<size:
                                         print r,
@@ -282,7 +282,7 @@ def menu(stream):
             criaIndices(u[0],u[1],w[0],w[1])
         else:
             if(k==2):
-                imprimeOsParanaueNaTela('chaveSec.txt',stream,'chavePrim.txt')
+                imprimeOsParanaueNaTela('Sec.txt',stream,'Prim.txt')
             else:
                 return
 
